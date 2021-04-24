@@ -1,0 +1,80 @@
+html{
+	height: 100%;
+}
+body{
+	background-image:linear-gradient(#41729F, white);
+	background-size: cover;
+	background-position: center;
+	font-family: Raleway;
+}
+
+
+.content {
+	text-align: center;
+	padding-top: 15%;
+	color: white;
+	height: 700px;
+    text-decoration-style: bold;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+}
+.content1{
+	text-align: center;
+	padding-top: 1%;
+	padding-bottom: 5%;
+	color: #222931;
+	font-size: 1.25em;
+	text-decoration-style: bold;
+
+}
+.content2{
+	text-align: left;
+	padding-top: 1%;
+	padding-bottom: 10%;
+	color: #E5E5E5;
+	text-decoration-style: bold;
+    
+}
+#creator{
+padding-top: 14%;
+}
+h1	{
+	font-size: 5em;
+	font-weight: 700;
+}
+a{
+	color: #E5E5E5;
+}
+.theme1{
+	background: white;
+	color: #222931;
+}
+.theme2{
+	background:#41729F;
+	color: #E5E5E5;
+}
+input[type=radio]{
+  width: 15px;
+    height: 30px;
+}
+form{
+	font-size: 2em;
+	padding-bottom: 5%;
+}
+.btn{
+	width: 20%;
+}
+hr{
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+footer{
+	background: #E5E5E5;
+	color: black;
+}
+.foot{
+	color: black;
+}
