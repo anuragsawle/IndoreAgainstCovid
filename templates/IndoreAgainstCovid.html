@@ -20,7 +20,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-				<a href="#" class="navbar-brand"><i class="fa fa-hand-rock-o" aria-hidden="true"></i> IndoreAgainstCovid</a>
+				<a href="#" class="navbar-brand"><i class="fa fa-hand-rock-o" aria-hidden="true"></i> IndoreAgainstCorona</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-nav-demo">
 				<ul class="nav navbar-nav">
@@ -72,7 +72,7 @@
     <label class="radio-inline">
       <input type="radio" name="data" value="10">Food Supply
     </label><br><br>
-		<button class="btn btn-default btn-danger btn-lg">Search</button>
+		<button class="btn btn-default btn-danger btn-lg" id="btn1">Search</button>
   </form>
 
 				</div>
@@ -93,11 +93,31 @@
 	</div>
     </section>
 
+	<section id="about" class="theme1 container-fluid ">
+    	<div class="row">
+            <div class="col-md-12 text-center">
+
+				<div class="content1">
+					<h2></h2>
+					<p>If your are getting any Help from these,please provide your feedback</p>
+					<form method="post" id="feedback">
+						<a href="#" id="yes">
+					        <button name="subfeed" value="yes" class="btn btn-default btn-success btn-lg" id="btnsubmit">Yes</button>
+						</a>
+						<a href="#" id="no">
+						<button name="subfeed" value="no" class="btn btn-default btn-info btn-lg" id="btnsubmit1">No</button>
+						</a>
+					</form>
+				</div>
+		</div>
+	</div>
+    </section>
+
 	<section id="contact" class="theme2 container-fluid ">
     	<div class="row">
 			<div class="col-md-4 text-center">
 				<div class="content2">
-			<h2>Contact Us</h2><br>
+			<h2>Contact Us</h2>
 					<p>Anurag Sawle</p>
 					<p><i class="fa fa-envelope-o" aria-hidden="true"></i> anuragsawle70@gmail.com</p>
 					<a href="https://instagram.com/anuragsawle.py?igshid=a29yue44giue"><i class="fa fa-instagram" aria-hidden="true"></i> @anuragsawle.py</a>
@@ -122,7 +142,7 @@
 
     <footer>
         <div class="text-center">PRIVACY POLICY .
-        <a class="text-light foot" href="#">IndoreAgainstCovid</a>
+        <a class="text-light foot" href="#">IndoreAgainstCorona</a>
          </div>
     </footer>
 
@@ -137,6 +157,47 @@ $(function () {
             }
         });
     });
+</script>
+<script>
+	$(document).ready(function() {
+    $("#btnsubmit").click(function(e){
+        alert("Thanks for your feedback");
+        e.preventDefault();
+    });
+});
+</script>
+<script>
+	$(document).ready(function() {
+    $("#btnsubmit1").click(function(e){
+        alert("Thanks for your feedback");
+        e.preventDefault();
+    });
+});
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#yes').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/feedbackyes',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+<script type=text/javascript>
+        $(function() {
+          $('a#no').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/feedbackno',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
 </script>
 </body>
 </html>
