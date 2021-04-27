@@ -25,16 +25,36 @@ def index():
         q = 'https://twitter.com/search?q=verified+indore+'
         x = q + data[d] + '+-"needed"+-"required"&f=live'
         return redirect(x)
-    return render_template("index.html")
+    return render_template("IndoreAgainstCovid.html")
 
-@app.route('/feedbackyes',methods=['POST', 'GET'])
+
+@app.route('/feedbackyes', methods=['POST', 'GET'])
 def feedbackyes():
-    print("yes clicked")
+    conn1 = sqlite3.connect('static/counter.db')
+    cur1 = conn1.cursor()
+    cur1.execute("select yes from feedback")
+    y = cur1.fetchone()
+    y = y[0]
+    yu = y + 1
+    update_query1 = """Update feedback set yes = ? where yes = ?"""
+    data11 = (yu, y)
+    cur1.execute(update_query1, data11)
+    conn1.commit()
     return ("nothing")
 
-@app.route('/feedbackno',methods=['POST', 'GET'])
+
+@app.route('/feedbackno', methods=['POST', 'GET'])
 def feedbackno():
-    print("no clicked")
+    conn2 = sqlite3.connect('static/counter.db')
+    cur2 = conn2.cursor()
+    cur2.execute("select no from feedback")
+    n = cur2.fetchone()
+    n = n[0]
+    nu = n + 1
+    update_query2 = """Update feedback set no = ? where no = ?"""
+    data12 = (nu, n)
+    cur2.execute(update_query2, data12)
+    conn2.commit()
     return ("nothing")
 
 
@@ -45,9 +65,16 @@ def counter():
     cur.execute("select * from counter")
     a = cur.fetchone()
     a = a[0]
-    txt="Total no of visit: {}<br />".format(a)
-    txt1="Total no of Yes:"
-    return txt+txt1
+    txt = "Total no of visit: {}<br />".format(a)
+    cur.execute("select yes from feedback")
+    y = cur.fetchone()
+    y = y[0]
+    cur.execute("select no from feedback")
+    n = cur.fetchone()
+    n = n[0]
+    txt1 = "Total no of Yes:{}<br />".format(y)
+    txt2 = "Total no of NO:{}<br />".format(n)
+    return txt + txt1 + txt2
 
 
 if __name__ == '__main__':
