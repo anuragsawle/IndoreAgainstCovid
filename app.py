@@ -25,7 +25,17 @@ def index():
         q = 'https://twitter.com/search?q=verified+indore+'
         x = q + data[d] + '+-"needed"+-"required"&f=live'
         return redirect(x)
-    return render_template("IndoreAgainstCovid.html")
+    return render_template("index.html")
+
+@app.route('/feedbackyes',methods=['POST', 'GET'])
+def feedbackyes():
+    print("yes clicked")
+    return ("nothing")
+
+@app.route('/feedbackno',methods=['POST', 'GET'])
+def feedbackno():
+    print("no clicked")
+    return ("nothing")
 
 
 @app.route('/counter')
@@ -35,8 +45,10 @@ def counter():
     cur.execute("select * from counter")
     a = cur.fetchone()
     a = a[0]
-    return str(a)
+    txt="Total no of visit: {}<br />".format(a)
+    txt1="Total no of Yes:"
+    return txt+txt1
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
