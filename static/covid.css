@@ -8,6 +8,16 @@ body{
 	font-family: Raleway;
 }
 
+.checkbox-inline, .radio-inline{
+    color: black;
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+}
 
 .content {
 	text-align: center;
@@ -42,7 +52,14 @@ padding-top: 14%;
 h1	{
 	font-size: 5em;
 	font-weight: 700;
+	color:black;
 }
+
+.h3, h3 {
+    color: brown;
+    font-size: 24px;
+}
+
 a{
 	color: #E5E5E5;
 }
